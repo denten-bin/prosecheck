@@ -1,5 +1,5 @@
 #!/bin/bash
-# Uasage:
+# Usage:
 #           sh prosereport.sh [-s|-l] filename.md
 #
 #           -s short report (not implemented yet)
