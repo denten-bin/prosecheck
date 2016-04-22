@@ -31,22 +31,25 @@ for last; do true; done
 source=$last
 
 # check for pandoc and attempt to strip html
+# supress output of command check to null device
 if
-    ! command -v pandocx
+    ! command -v pandocx >/dev/null
 then
     echo "Pandoc not found. Not a big deal. Will skip stripping html characters."
+    clean=$( cat $source )
 else
     clean=$( pandoc -f markdown -t plain "$source")
 fi
 
-
 # display character and word counts
 # wc returns '32143 filename.txt'
 # use cut to grab the number only
-words=$(wc -w "$clean" | cut -d' ' -f1)
-chars=$(wc -c "$clean" | cut -d' ' -f1)
+words=$( echo $clean | wc -w | cut -d' ' -f1 )
+chars=$( echo $clean | wc -c | cut -d' ' -f1 )
 
 # get sentence counts
+
+# get uniq counts minus common english words
 
 # show everything
 echo "words: ""$words"
