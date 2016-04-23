@@ -14,7 +14,7 @@ almost any platform without dependencies
 [2]: http://en.flossmanuals.net/command-line/index/
 
 `prosecheck` does not seek to be authoritative or complete. Rather it targets
-sane defaults and reasonable coverage to help authors write better prose.
+sane defaults and reasonable coverage to help authors polish their prose.
 
 ## Roadmap
 
