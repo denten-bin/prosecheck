@@ -25,7 +25,7 @@ sane defaults and reasonable coverage to help authors polish their prose.
 ![0.1 screenshot](images/v01.png)
 
 *0.2*
-- [ ] pretty output
+- [x] pretty output
 - [ ] sentence, paragraph count
 - [ ] average sentence length
 - [ ] reading difficulty
@@ -36,6 +36,7 @@ sane defaults and reasonable coverage to help authors polish their prose.
 
 *0.3*
 - [ ] weasel word index
+- [ ] options for short and long outputs
 - [ ] modularize
 - [ ] installation and usage instructions
 

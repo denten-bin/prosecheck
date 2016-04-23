@@ -77,10 +77,17 @@ echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
 
 # show everything nicely
 clear
-echo "words: ""${RED}$words${NC}"
-echo "characters: ""${RED}$chars${NC}"
-echo "your 25 most used words are:"
+echo "    =================================="
+echo "     summary for $source"
+echo "    ----------------------------------"
+echo "        words:      ${RED}$words${NC}"
+echo "        characters: ${RED}$chars${NC}"
+
+echo " \n"
+echo "    your 25 most used words are:"
+echo " \n"
 head -n 25 logs/minus-stop.txt | column
+echo " \n"
 
 # clean up
 
