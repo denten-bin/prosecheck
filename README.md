@@ -37,6 +37,7 @@ sane defaults and reasonable coverage to help authors polish their prose.
 *0.3*
 - [ ] weasel word index
 - [ ] modularize
+- [ ] installation and usage instructions
 
 *0.4*
 - [ ] root report (port from nltk)
