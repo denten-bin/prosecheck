@@ -60,12 +60,11 @@ TBA
 
 ## Credits
 
-- [Contributors][10].
-- List of stopwords from [CoreNLP][11](Stanford NLP).
+- [Contributors][10]
+- List of stopwords from [CoreNLP][11], Stanford NLP
 
 [10]: https://github.com/xpmethod/prosecheck/graphs/contributors
 [11]: https://github.com/stanfordnlp/CoreNLP
-
 
 ## Similar tools
 
