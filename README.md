@@ -33,11 +33,13 @@ sane defaults and reasonable coverage to help authors write better prose.
 *0.2*
 - [ ] pretty output
 - [ ] weasel word index
+- [ ] modularize
 
 *0.3*
 - [ ] root report (port from nltk)
 - [ ] adverb ratio vs. some writer
 - [ ] long introductory clause
+- [ ] add tests w/ Travis
 
 *0.4*
 - [ ] report generation
