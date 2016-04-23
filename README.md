@@ -1,13 +1,18 @@
 ## prosecheck
 
-*A clean,^1 powerful, portable prose analysis console for the command line.*
+*A clean,<sup>1</sup> powerful,<sup>2</sup> portable<sup>3</sup> prose
+analysis console for the [command line][2].*
 
-`clean` means it is easy to install and it does something useful out of the
-box without complexity. `powerful` means there are smart, advanced options for
-those wanting to use them. `portable` means it is written in [POSIX][1] complaint
-shell and will work on almost any platform without dependencies.
+1. easy to install and it does something useful out of the box without
+complexity
+
+2. smart, advanced options for those wanting to use them
+
+3. written in [POSIX][1] complaint shell, easy to install, and working on
+almost any platform without dependencies
 
 [1]: http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Shell.html#Portable-Shell
+[2]: http://en.flossmanuals.net/command-line/index/
 
 We do not seek to be authoritative or complete. Rather target sane defaults
 and reasonable coverage to help authors write better prose.
