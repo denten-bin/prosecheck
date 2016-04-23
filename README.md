@@ -52,7 +52,7 @@ sane defaults and reasonable coverage to help authors write better prose.
 - [ ] json output
 - [ ] man page
 
-## Installation
+## Installation, Screenshots
 
 TBA
 
