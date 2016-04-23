@@ -2,14 +2,12 @@
 
 *A clean, powerful, portable prose analysis console for the command line.*
 
-*simple* means it is easy to install and it does something useful out of the
-box without complexity.
+`clean` means it is easy to install and it does something useful out of the
+box without complexity. `powerful` means there are smart, advanced options for
+those wanting to use them. `portable` means it is written in [POSIX][1] complaint
+shell and will work on almost any platform without dependencies.
 
-*powerful* means there are smart, advanced options for those wanting to use
-them.
-
-*portable* means it is written in POSIX complaint shell and will work on
-almost any platform without dependencies.
+[1]: http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Shell.html#Portable-Shell
 
 We do not seek to be authoritative or complete. Rather target sane defaults
 and reasonable coverage to help authors write better prose.
@@ -25,6 +23,7 @@ and reasonable coverage to help authors write better prose.
 - [ ] reading difficulty
 - [ ] sentence length variation
 - [ ] sentence to paragraph ratio
+- [ ] move development to dash
 
 *0.2*
 - [ ] pretty output
