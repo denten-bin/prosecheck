@@ -5,11 +5,9 @@ analysis console for the [command line][2].*
 
 <sup>1. easy to install and it does something useful out of the box without
 complexity</sup>
-
-2. smart, advanced options for those wanting to use them
-
-3. written in [POSIX][1] complaint shell, easy to install, and working on
-almost any platform without dependencies
+<sup>2. smart, advanced options for those wanting to use them</sup>
+<sup>3. written in [POSIX][1] complaint shell, easy to install, and working on
+almost any platform without dependencies</sup>
 
 [1]: http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Shell.html#Portable-Shell
 [2]: http://en.flossmanuals.net/command-line/index/
