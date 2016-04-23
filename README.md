@@ -14,34 +14,34 @@ coverage.
 ## Roadmap
 
 *0.1*
-[x] word, character count
-[x] strip html if pandoc is available
-[ ] common words minus stop words
-[ ] sentence, paragraph count
-[ ] average sentence length
-[ ] reading difficulty
-[ ] sentence length variation
-[ ] sentence to paragraph ratio
+- [x] word, character count
+- [x] strip html if pandoc is available
+- [ ] common words minus stop words
+- [ ] sentence, paragraph count
+- [ ] average sentence length
+- [ ] reading difficulty
+- [ ] sentence length variation
+- [ ] sentence to paragraph ratio
 
 *0.2*
-[ ] pretty output
-[ ] weasel word index
+- [ ] pretty output
+- [ ] weasel word index
 
 *0.3*
-[ ] root report (port from nltk)
-[ ] adverb ratio vs. some writer
-[ ] long introductory clause
+- [ ] root report (port from nltk)
+- [ ] adverb ratio vs. some writer
+- [ ] long introductory clause
 
 *0.4*
-[ ] report generation
-[ ] linting
-[ ] port proselint / prosechck
+- [ ] report generation
+- [ ] linting
+- [ ] port proselint / prosechck
 
 *0.5*
-[ ] .tex, .docx, and .odt support
-[ ] comparison with other authors
-[ ] json output
-[ ] man page
+- [ ] .tex, .docx, and .odt support
+- [ ] comparison with other authors
+- [ ] json output
+- [ ] man page
 
 ## Installation
 
