@@ -1,35 +1,54 @@
-## prosereport
+## prosecheck
 
-A simple, powerful prose reporting tool for the command line.
+A simple, powerful, portable prose analysis console for the command line.
 
-**Goals**: To create a lean, minimally invasive prose reporting tool, without
-external dependencies, written in pure Shell.  Portability through POSIX
-compliance. A report view that gives a rich,
-[Conky](https://github.com/brndnmtthws/conky)-like summary of prose style.
-Develop iteratively.
+**Goals**: To create a lean prose reporting tool without external
+dependencies, written in POSIX complaint shell. A report view that gives a
+rich, [Conky](https://github.com/brndnmtthws/conky)-like summary of prose
+style.
 
 **Non-goals**: Spell check should be done elsewhere. We do not seek to be
 authoritative or complete. Rather target sane defaults and reasonable
 coverage.
 
-## Feature list
+## Roadmap
 
+*0.1*
 [x] word, character count
+[x] strip html if pandoc is available
+[ ] common words minus stop words
 [ ] sentence, paragraph count
-[ ] strip html if pandoc is available
-[ ] Common words minus stop words
-[ ] ignore HTML
-[ ] reading difficulty
 [ ] average sentence length
+[ ] reading difficulty
 [ ] sentence length variation
-[ ] weasel word index
 [ ] sentence to paragraph ratio
+
+*0.2*
+[ ] pretty output
+[ ] weasel word index
+
+*0.3*
 [ ] root report (port from nltk)
-[ ] latinate word index
 [ ] adverb ratio vs. some writer
 [ ] long introductory clause
-[ ] a few sample texts with each metric comparative
+
+*0.4*
+[ ] report generation
+[ ] linting
+[ ] port proselint / prosechck
+
+*0.5*
+[ ] .tex, .docx, and .odt support
+[ ] comparison with other authors
+[ ] json output
+[ ] man page
+
+## Installation
+
+TBA
 
 ## Similar tools
 
-[Conky](https://github.com/brndnmtthws/conky)
+- [Conky](https://github.com/brndnmtthws/conky)
+- [`proselint`](https://github.com/amperser/proselint),
+- [`textlint`](https://github.com/textlint/textlint)

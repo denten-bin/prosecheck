@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Usage:
 #           sh prosereport.sh [-s|-l] filename.md
 #
