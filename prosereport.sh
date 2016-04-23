@@ -21,6 +21,10 @@ then
         exit
 fi
 
+# colors
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # getting the filename which should always be the last argument
 # from http://goo.gl/n1gAjm
 # It uses the fact that for implicitly loops over the arguments if you don't
@@ -72,9 +76,11 @@ echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
 
 
 # show everything nicely
-echo "words: ""$words"
-echo "characters: ""$chars"
+clear
+echo "words: ""${RED}$words${NC}"
+echo "characters: ""${RED}$chars${NC}"
 echo "your 25 most used words are:"
 head -n 25 logs/minus-stop.txt | column
 
 # clean up
+
