@@ -1,15 +1,18 @@
 ## prosecheck
 
-A simple, powerful, portable prose analysis console for the command line.
+*A clean, powerful, portable prose analysis console for the command line.*
 
-**Goals**: To create a lean prose reporting tool without external
-dependencies, written in POSIX complaint shell. A report view that gives a
-rich, [Conky](https://github.com/brndnmtthws/conky)-like summary of prose
-style.
+*simple* means it is easy to install and it does something useful out of the
+box without complexity.
 
-**Non-goals**: Spell check should be done elsewhere. We do not seek to be
-authoritative or complete. Rather target sane defaults and reasonable
-coverage.
+*powerful* means there are smart, advanced options for those wanting to use
+them.
+
+*portable* means it is written in POSIX complaint shell and will work on
+almost any platform without dependencies.
+
+We do not seek to be authoritative or complete. Rather target sane defaults
+and reasonable coverage to help authors write better prose.
 
 ## Roadmap
 
