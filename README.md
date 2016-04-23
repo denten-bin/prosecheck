@@ -56,6 +56,6 @@ TBA
 
 ## Similar tools
 
-- [Conky](https://github.com/brndnmtthws/conky)
-- [`proselint`](https://github.com/amperser/proselint),
+- [`conky`](https://github.com/brndnmtthws/conky)
+- [`proselint`](https://github.com/amperser/proselint)
 - [`textlint`](https://github.com/textlint/textlint)
