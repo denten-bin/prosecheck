@@ -52,6 +52,9 @@ sane defaults and reasonable coverage to help authors write better prose.
 - [ ] json output
 - [ ] man page
 
+*0.6*
+- [ ] remove dependency on Pandoc to strip html
+
 ## Installation, Screenshots
 
 TBA

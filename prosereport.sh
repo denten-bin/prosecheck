@@ -33,7 +33,7 @@ source=$last
 # check for pandoc and attempt to strip html
 # supress output of command check to null device
 if
-    ! command -v pandocx >/dev/null
+    ! command -v pandoc >/dev/null
 then
     echo "Pandoc not found. Not a big deal. Will skip stripping html characters."
     clean=$( cat $source )
