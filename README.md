@@ -1,6 +1,6 @@
 ## prosecheck
 
-*A clean, powerful, portable prose analysis console for the command line.*
+*A clean,^1 powerful, portable prose analysis console for the command line.*
 
 `clean` means it is easy to install and it does something useful out of the
 box without complexity. `powerful` means there are smart, advanced options for
