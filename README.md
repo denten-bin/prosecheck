@@ -14,8 +14,8 @@ almost any platform without dependencies
 [1]: http://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Shell.html#Portable-Shell
 [2]: http://en.flossmanuals.net/command-line/index/
 
-We do not seek to be authoritative or complete. Rather target sane defaults
-and reasonable coverage to help authors write better prose.
+`prosecheck` does not seek to be authoritative or complete. Rather it targets
+sane defaults and reasonable coverage to help authors write better prose.
 
 ## Roadmap
 
