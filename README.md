@@ -1,7 +1,7 @@
 ## `prosecheck`
 
-*A clean,<sup>1</sup> powerful,<sup>2</sup> portable<sup>3</sup> prose
-analysis console for the [command line][2].*
+*A lean,<sup>1</sup> powerful,<sup>2</sup> and portable<sup>3</sup> diagnostic tool
+for analysing prose in the [command line][2].*
 
 <sup>1. easy to install and it does something useful out of the box without
 complexity</sup><br></sup>
