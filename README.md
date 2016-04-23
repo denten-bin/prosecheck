@@ -3,7 +3,6 @@
 *A clean,<sup>1</sup> powerful,<sup>2</sup> portable<sup>3</sup> prose
 analysis console for the [command line][2].*
 
-
 <sup>1. easy to install and it does something useful out of the box without
 complexity</sup><br></sup>
 <sup>2. smart, advanced options for those wanting to use them<br></sup>
@@ -58,6 +57,15 @@ sane defaults and reasonable coverage to help authors write better prose.
 ## Installation, Screenshots
 
 TBA
+
+## Credits
+
+- [Contributors][10].
+- List of stopwords from [CoreNLP][11](Stanford NLP).
+
+[10]: https://github.com/xpmethod/prosecheck/graphs/contributors
+[11]: https://github.com/stanfordnlp/CoreNLP
+
 
 ## Similar tools
 
