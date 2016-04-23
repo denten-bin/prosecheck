@@ -83,11 +83,11 @@ echo "    ----------------------------------"
 echo "        words:      ${RED}$words${NC}"
 echo "        characters: ${RED}$chars${NC}"
 
-echo " \n"
+echo " \r"
 echo "    your 25 most used words are:"
-echo " \n"
+echo " \r"
 head -n 25 logs/minus-stop.txt | column
-echo " \n"
+echo " \r"
 
 # clean up
 
