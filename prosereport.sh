@@ -50,9 +50,31 @@ chars=$( echo $clean | wc -c | cut -d' ' -f1 )
 # get sentence counts
 
 # get uniq counts minus common english words
+# remove punctuation
+nopunct=$( echo $clean | tr -d "[:punct:]")
 
-# show everything
+# everything to lower case
+normal=$( echo $nopunct | tr '[:upper:]' '[:lower:]' )
+
+# tokenize and sort by frequency
+echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
+
+# remove stowords
+
+    # comm was a nice trick for set intersection
+    # but does not work here because we have more than one of
+    # each word
+    # comm -23 temp.txt stop-words.txt > temp2.txt
+    # cut -c 9 was a nice trick too that was not needed
+    # cat temp2.txt | uniq -c | sort -hr | cut -c 9- | sort > report.log
+
+    cat logs/word-count.txt | grep -vwFf stop-words.txt > logs/minus-stop.txt
+
+
+# show everything nicely
 echo "words: ""$words"
 echo "characters: ""$chars"
+echo "your 25 most used words are:"
+head -n 25 logs/minus-stop.txt | column
 
 # clean up

@@ -21,37 +21,40 @@ sane defaults and reasonable coverage to help authors write better prose.
 *0.1*
 - [x] word, character count
 - [x] strip html if pandoc is available
-- [ ] common words minus stop words
+- [x] common words minus stop words
+
+*0.2*
+- [ ] pretty output
 - [ ] sentence, paragraph count
 - [ ] average sentence length
 - [ ] reading difficulty
 - [ ] sentence length variation
 - [ ] sentence to paragraph ratio
 - [ ] move development to dash
+- [ ] add time stamp to report.log
 
-*0.2*
-- [ ] pretty output
+*0.3*
 - [ ] weasel word index
 - [ ] modularize
 
-*0.3*
+*0.4*
 - [ ] root report (port from nltk)
 - [ ] adverb ratio vs. some writer
 - [ ] long introductory clause
 - [ ] add tests w/ Travis
 
-*0.4*
+*0.5*
 - [ ] report generation
 - [ ] linting
 - [ ] port proselint / prosechck
 
-*0.5*
+*0.6*
 - [ ] .tex, .docx, and .odt support
 - [ ] comparison with other authors
 - [ ] json output
 - [ ] man page
 
-*0.6*
+*0.7*
 - [ ] remove dependency on Pandoc to strip html
 
 ## Installation, Screenshots
