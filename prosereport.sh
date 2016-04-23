@@ -80,13 +80,14 @@ echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
 # show everything nicely
 clear
 echo "    =================================="
-echo "     summary for $source"
+echo "     ${bold}summary for $source"
 echo "    ----------------------------------"
 echo "        ${bold}words:         ${RED}$words${NC}"
 echo "        ${bold}characters:    ${RED}$chars${NC}"
-
+tput sgr0                               # Reset colors to "normal."
 echo " \r"
 echo "    ${bold}your 25 most used words are:"
+tput sgr0                               # Reset colors to "normal."
 echo " \r"
 head -n 25 logs/minus-stop.txt | column
 echo " \r"
