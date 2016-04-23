@@ -18,10 +18,12 @@ sane defaults and reasonable coverage to help authors write better prose.
 
 ## Roadmap
 
-*0.1*
+*0.1* 04/22/2016
 - [x] word, character count
 - [x] strip html if pandoc is available
 - [x] common words minus stop words
+
+![0.1 screenshot](images/v01.png)
 
 *0.2*
 - [ ] pretty output
