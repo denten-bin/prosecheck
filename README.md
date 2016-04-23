@@ -1,12 +1,12 @@
 ## `prosecheck`
 
-*A lean,<sup>1</sup> powerful,<sup>2</sup> and portable<sup>3</sup> diagnostic tool
+*A lean,<sup>1</sup> powerful,<sup>2</sup> and portable<sup>3</sup> diagnostic script
 for analysing prose in the [command line][2].*
 
 <sup>1. easy to install and it does something useful out of the box without
 complexity</sup><br></sup>
 <sup>2. smart, advanced options for those wanting to use them<br></sup>
-<sup>3. written in [POSIX][1] complaint shell, easy to install, and working on
+<sup>3. written in [POSIX][1] complaint shell scripting language that should run on
 almost any platform without dependencies
 </sup>
 
