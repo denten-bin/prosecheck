@@ -41,7 +41,7 @@ then
 fi
 
 # ==========================================================
-# clean
+# clean, strip stop-words
 # ==========================================================
 
 # check for pandoc and attempt to strip html
@@ -55,12 +55,6 @@ else
     clean=$( pandoc -f markdown -t plain "$source" )
 fi
 
-# display character and word counts
-# wc returns '32143 filename.txt'
-# use cut to grab the number only
-words=$( echo $clean | wc -w | cut -d' ' -f1 )
-chars=$( echo $clean | wc -c | cut -d' ' -f1 )
-
 # get uniq counts minus common english words
 # remove punctuation
 nopunct=$( echo $clean | tr -d "[:punct:]")
@@ -69,27 +63,41 @@ nopunct=$( echo $clean | tr -d "[:punct:]")
 normal=$( echo $nopunct | tr '[:upper:]' '[:lower:]' )
 
 # tokenize and sort by frequency
-echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
+echo $normal | tr ' ' '\n' > logs/all-words.txt
+cat logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
 
 # remove stowords
 
-    # comm was a nice trick for set intersection
-    # but does not work here because we have more than one of
-    # each word
-    # comm -23 temp.txt stop-words.txt > temp2.txt
-    # cut -c 9 was a nice trick too that was not needed
-    # cat temp2.txt | uniq -c | sort -hr | cut -c 9- | sort > report.log
+# comm was a nice trick for set intersection
+# but does not work here because we have more than one of
+# each word
+# comm -23 temp.txt stop-words.txt > temp2.txt
+# cut -c 9 was a nice trick too that was not needed
+# cat temp2.txt | uniq -c | sort -hr | cut -c 9- | sort > report.log
 
-    cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
-
+cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
 
 # ==========================================================
-# sentence counts
+# basic counts
 # ==========================================================
+
+# display character and word counts
+# wc returns '32143 filename.txt'
+# use cut to grab the number only
+words=$( echo $clean | wc -w | cut -d' ' -f1 )
+chars=$( echo $clean | wc -c | cut -d' ' -f1 )
+
+# count sentences
 
 # ==========================================================
 # type to token ratio
 # ==========================================================
+
+# sample file randomly
+# only perform STTR on files longer than 1k words
+#if [ wc -logs/word-count.txt - "$last" ]
+
+# shuf -n N input > output
 
 # count types
 types=$( wc -l logs/minus-stop.txt | cut -d' ' -f1 )
@@ -123,5 +131,3 @@ tput sgr0                               # Reset colors to "normal."
 echo " \r"
 head -n 25 logs/minus-stop.txt | column
 echo " \r"
-
-# clean up
