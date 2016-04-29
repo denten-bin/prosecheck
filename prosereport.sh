@@ -74,7 +74,7 @@ echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
     # cut -c 9 was a nice trick too that was not needed
     # cat temp2.txt | uniq -c | sort -hr | cut -c 9- | sort > report.log
 
-    cat logs/word-count.txt | grep -vwFf stop-words.txt > logs/minus-stop.txt
+    cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
 
 
 # show everything nicely
