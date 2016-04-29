@@ -10,22 +10,19 @@
 #           * strip comments if pandoc is available
 #           * assume your paragraphs are separated by newlines
 
+# ==========================================================
+# handle file errors
+# ==========================================================
 
-## check if filename was passed
-## get usage instruction from the head
-## for the error message
+# check if filename was passed
+# get usage instruction from the head
+# for the error message
 if [ $# -eq 0 ]
 then
         echo "Missing the file name.\n"
         head -n 6 prosereport.sh
         exit
 fi
-
-# colors
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-bold=$(tput bold)
-normal=$(tput sgr0)
 
 # getting the filename which should always be the last argument
 # from http://goo.gl/n1gAjm
@@ -36,6 +33,17 @@ normal=$(tput sgr0)
 for last; do true; done
 source=$last
 
+# test if file exists
+if [ ! -e "$last" ]
+then
+    echo "Cannot find $last!"
+    exit
+fi
+
+# ==========================================================
+# clean
+# ==========================================================
+
 # check for pandoc and attempt to strip html
 # supress output of command check to null device
 if
@@ -44,7 +52,7 @@ then
     echo "Pandoc not found. Not a big deal. Will skip stripping html characters."
     clean=$( cat $source )
 else
-    clean=$( pandoc -f markdown -t plain "$source")
+    clean=$( pandoc -f markdown -t plain "$source" )
 fi
 
 # display character and word counts
@@ -52,8 +60,6 @@ fi
 # use cut to grab the number only
 words=$( echo $clean | wc -w | cut -d' ' -f1 )
 chars=$( echo $clean | wc -c | cut -d' ' -f1 )
-
-# get sentence counts
 
 # get uniq counts minus common english words
 # remove punctuation
@@ -77,13 +83,39 @@ echo $normal | tr ' ' '\n' | sort | uniq -c | sort -hr > logs/word-count.txt
     cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
 
 
+# ==========================================================
+# sentence counts
+# ==========================================================
+
+# ==========================================================
+# type to token ratio
+# ==========================================================
+
+# count types
+types=$( wc -l logs/minus-stop.txt | cut -d' ' -f1 )
+echo $types
+echo $words
+
+# get type-token ratio
+ttr=$( echo "scale=2; $types/$words" | bc -l )
+
+# ==========================================================
 # show everything nicely
+# ==========================================================
+
+# set the colors
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+bold=$(tput bold)
+normal=$(tput sgr0)
+
 clear
 echo "    =================================="
 echo "     ${bold}summary for $source"
 echo "    ----------------------------------"
-echo "        ${bold}words:         ${RED}$words${NC}"
-echo "        ${bold}characters:    ${RED}$chars${NC}"
+echo "        ${bold}words:               ${RED}$words${NC}"
+echo "        ${bold}characters:          ${RED}$chars${NC}"
+echo "        ${bold}type-token ratio:    ${RED}$ttr${NC}"
 tput sgr0                               # Reset colors to "normal."
 echo " \r"
 echo "    ${bold}your 25 most used words are:"
@@ -93,4 +125,3 @@ head -n 25 logs/minus-stop.txt | column
 echo " \r"
 
 # clean up
-
