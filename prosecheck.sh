@@ -67,7 +67,6 @@ echo $normal | tr ' ' '\n' > logs/all-words.txt
 cat logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
 
 # remove stowords
-
 # comm was a nice trick for set intersection
 # but does not work here because we have more than one of
 # each word
@@ -78,7 +77,7 @@ cat logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
 cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
 
 # ==========================================================
-# basic counts
+# word counts
 # ==========================================================
 
 # display character and word counts
@@ -93,41 +92,51 @@ chars=$( echo $clean | wc -c | cut -d' ' -f1 )
 # type to token ratio
 # ==========================================================
 
-# sample file randomly
+# sample 1k words randomly
 # only perform STTR on files longer than 1k words
 #if [ wc -logs/word-count.txt - "$last" ]
 
-# shuf -n N input > output
+minlen=1000
+length=$( wc -l logs/all-words.txt | cut -d' ' -f1 )
+
+if [ $length -gt $minlen ]
+then
+    shuf -n $minlen logs/all-words.txt > logs/1k-sample.txt
+fi
 
 # count types
-types=$( wc -l logs/minus-stop.txt | cut -d' ' -f1 )
-echo $types
-echo $words
+types=$( cat logs/1k-sample.txt | uniq | wc -l )
 
 # get type-token ratio
-ttr=$( echo "scale=2; $types/$words" | bc -l )
+ttr=$( echo "scale=2; $types/$minlen" | bc -l )
+echo $ttr
 
 # ==========================================================
 # show everything nicely
 # ==========================================================
 
-# set the colors
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-bold=$(tput bold)
-normal=$(tput sgr0)
+report () {
 
-clear
-echo "    =================================="
-echo "     ${bold}summary for $source"
-echo "    ----------------------------------"
-echo "        ${bold}words:               ${RED}$words${NC}"
-echo "        ${bold}characters:          ${RED}$chars${NC}"
-echo "        ${bold}type-token ratio:    ${RED}$ttr${NC}"
-tput sgr0                               # Reset colors to "normal."
-echo " \r"
-echo "    ${bold}your 25 most used words are:"
-tput sgr0                               # Reset colors to "normal."
-echo " \r"
-head -n 25 logs/minus-stop.txt | column
-echo " \r"
+    # set the colors
+    RED='\033[0;31m'
+    NC='\033[0m' # No Color
+    bold=$(tput bold)
+    normal=$(tput sgr0)
+
+    clear
+    echo "    =================================="
+    echo "     ${bold}summary for $source"
+    echo "    ----------------------------------"
+    echo "        ${bold}words:               ${RED}$words${NC}"
+    echo "        ${bold}characters:          ${RED}$chars${NC}"
+    echo "        ${bold}type-token ratio:    ${RED}$ttr${NC}"
+    tput sgr0                               # Reset colors to "normal."
+    echo " \r"
+    echo "    ${bold}your 25 most used words are:"
+    tput sgr0                               # Reset colors to "normal."
+    echo " \r"
+    head -n 25 logs/minus-stop.txt | column
+    echo " \r"
+}
+
+report
