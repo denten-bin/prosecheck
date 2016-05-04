@@ -24,6 +24,12 @@ then
         exit
 fi
 
+# check for logs
+if [ ! -d logs/ ]
+then
+    mkdir logs/
+fi
+
 # getting the filename which should always be the last argument
 # from http://goo.gl/n1gAjm
 # It uses the fact that for implicitly loops over the arguments if you don't
@@ -92,24 +98,27 @@ chars=$( echo $clean | wc -c | cut -d' ' -f1 )
 # type to token ratio
 # ==========================================================
 
-# sample 1k words randomly
-# only perform STTR on files longer than 1k words
-#if [ wc -logs/word-count.txt - "$last" ]
+typetoken () {
 
-minlen=1000
-length=$( wc -l logs/all-words.txt | cut -d' ' -f1 )
+    # sample 1k words randomly
+    # only perform STTR on files longer than 1k words
+    #if [ wc -logs/word-count.txt - "$last" ]
 
-if [ $length -gt $minlen ]
-then
-    shuf -n $minlen logs/all-words.txt > logs/1k-sample.txt
-fi
+    minlen=1000
+    length=$( wc -l logs/all-words.txt | cut -d' ' -f1 )
 
-# count types
-types=$( cat logs/1k-sample.txt | uniq | wc -l )
+    if [ $length -gt $minlen ]
+    then
+        shuf -n $minlen logs/all-words.txt > logs/1k-sample.txt
+    fi
 
-# get type-token ratio
-ttr=$( echo "scale=2; $types/$minlen" | bc -l )
-echo $ttr
+    # count types
+    types=$( cat logs/1k-sample.txt | uniq | wc -l )
+
+    # get type-token ratio
+    ttr=$( echo "scale=2; $types/$minlen" | bc -l )
+    return $ttr
+}
 
 # ==========================================================
 # show everything nicely
@@ -139,4 +148,5 @@ report () {
     echo " \r"
 }
 
+typetoken
 report
