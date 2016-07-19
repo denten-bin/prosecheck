@@ -1,59 +1,60 @@
 acclaimed
 accused
-ace up the sleeve
-act of
-act as
+ace up the sleeve, flogging a dead horse
+act of, check for concealed metaphors
+act as, check for concealed metaphors
 actually
-alleged
-apparent
-at the end of the day
+alleged, by whom where and when?
+apparent, likely not
+at the end of the day, a hackneyed metaphor
 award-winning
 awesome
-bird in the hand
-brilliant
+bird in the hand, flogging a dead horse
+brilliant, overused
 celebrated
-clearly
-clearly
-compelling
-cutting-edge
+clearly, likely not
+compelling, to whom?
+cutting-edge, better be of the knife
 duly
 essentially
-experts declare
-extraordinary
+exactly, check for exacting usage
+experts declare, who where and when?
+extraordinary, there better be miracles
 famous
-fortunately
-gild the lily
+fortunately, for whom?
+gild the lily, flog a dead horse
 great
-happily
-hit
+happily, for whom?
 honorable
-if practicible
+if practicable
 innovative
 interestingly
-it is believed
-it is often reported
-it is often said
-it is regarded
-it is widely thought
-it should be noted
-landmark
+it is believed, passive
+it is often reported, passive
+it is often said, by whom where & when?
+it is regarded, passive
+it is widely thought, oh yeah?
+it should be noted, noted
+kind of
+landmark, should involve land
 leading
-legendary
-lion's share
-manifestly
-many are of the opinion
-many scholars state
-meaningful
-most feel
-notable
-notably
-obviously
-of course
+legendary, this better be about King Arthur
+lion's share, dead horse
+manifestly, like "obviously" and "evidently" only use for things truly in the domain of common knowledge
+many are of the opinion, who and when?
+many scholars state, who and when?
+meaningful, to whom?
+most feel, some don't
+notable, who did the noting?
+notably, for whom?
+obviously, use only for things that are obvious: like "water is wet"
+of course, probably not
 outstanding
-perfectly
+perfectly, check for usage
+precisely, use in connection with measurement only
 prestigious
 purported
-quite
+quite, usually safe to remove intensifiers
 rather
 reasonable
 remarkable
@@ -66,21 +67,22 @@ set of
 significantly
 so-called
 some people say
-somewhat
+somewhat, don't hedge your bets
 substantially
 supposed
 take the plunge
-the whay in which
-tip of the iceberg
-tragically
-twist of fate
+the way in which, get to the point
+tip of the iceberg, flogged a dead horse
+tragically, for whom?
+type of
+twist of fate, flogged a dead horse
 undue
-unfortunately
-unique
+unfortunately, for whom?
+unique, better be a truly singular thing/event
 untimely
-very
-virtually
+very, almost always better deleting it
+virtually, better be about virtual worlds
 virtuoso
-visionary
-without a doubt
+visionary, better be about having visions
+without a doubt, the reader will doubt
 world-class
