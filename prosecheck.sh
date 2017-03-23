@@ -1,4 +1,13 @@
 #!/bin/sh
+
+# "set -e" is short for "set -o errexit", that is, abort the script if a
+# command returns with a non-zero exit code.
+
+# "set -u" is short for "set -o nounset", that is, abort the script if a
+# variable name is dereferenced when the variable hasn't been set.ty
+
+set -eu
+
 # Usage:
 #           sh prosereport.sh [-s|-l] filename.md
 #
@@ -148,5 +157,5 @@ report () {
     echo " \r"
 }
 
-typetoken
+# typetoken
 report
