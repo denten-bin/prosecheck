@@ -18,8 +18,11 @@
 #           * assume your paragraphs are separated by newlines
 
 # ==========================================================
-# handle file errors
+# handle errors
 # ==========================================================
+
+# exit if any statement returns a non-true value
+set -euo pipefail
 
 # check if filename was passed
 # get usage instruction from the head
