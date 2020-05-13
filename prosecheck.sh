@@ -29,7 +29,7 @@ set -euo pipefail
 # for the error message
 if [ $# -eq 0 ]
 then
-        echo "Missing the file name.\n"
+        printf '%s\n' "Missing the file name.\n"
         head -n 6 prosereport.sh
         exit
 fi
@@ -52,7 +52,7 @@ source=$last
 # test if file exists
 if [ ! -e "$last" ]
 then
-    echo "Cannot find $last!"
+    printf '%s\n' "Cannot find $last!"
     exit
 fi
 
@@ -62,27 +62,31 @@ fi
 
 # check for pandoc and attempt to strip html
 # supress output of command check to null device
-if
-    ! command -v pandoc >/dev/null
-then
-    echo "Pandoc not found. Not a big deal. Will skip stripping html characters."
-    clean=$( cat $source )
-else
-    clean=$( pandoc -f markdown -t plain "$source" )
-fi
+# if
+#     ! command -v pandoc >/dev/null
+# then
+#     printf "Pandoc not found. Not a big deal. Will skip stripping html characters."
+#     clean=$( cat "$source" )
+# else
+#     clean=$( pandoc -f markdown -t plain "$source" )
+# fi
+clean=$( cat "$source" )
 
 # get uniq counts minus common english words
 # remove punctuation
-nopunct=$( echo $clean | tr -d "[:punct:]")
+nopunct=$( printf '%s\n' "$clean" | tr -d "[:punct:]")
+
+# remove blank lines
 
 # everything to lower case
-normal=$( echo $nopunct | tr '[:upper:]' '[:lower:]' )
+normal=$( printf '%s\n' "$nopunct" | tr '[:upper:]' '[:lower:]' | tr -d '0123456789' )
 
+# remove blank space with grep
 # tokenize and sort by frequency
-echo $normal | tr ' ' '\n' > logs/all-words.txt
-cat logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
+printf '%s\n' "$normal" | tr ' ' '\n' > logs/all-words.txt
+grep . logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
 
-# remove stowords
+# remove stowords with set intersection
 # comm was a nice trick for set intersection
 # but does not work here because we have more than one of
 # each word
@@ -90,7 +94,10 @@ cat logs/all-words.txt | sort | uniq -c | sort -hr > logs/word-count.txt
 # cut -c 9 was a nice trick too that was not needed
 # cat temp2.txt | uniq -c | sort -hr | cut -c 9- | sort > report.log
 
-cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
+# cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
+# grep -xF -f dicts/stop-words.txt _
+# sort dicts/stop-words.txt logs/all-words.txt | uniq -d > logs/minus-stop.txt
+grep -vwF -f dicts/stop-words.txt logs/all-words.txt > logs/minus-stop.txt
 
 # ==========================================================
 # word counts
@@ -99,8 +106,8 @@ cat logs/word-count.txt | grep -vwFf dicts/stop-words.txt > logs/minus-stop.txt
 # display character and word counts
 # wc returns '32143 filename.txt'
 # use cut to grab the number only
-words=$( echo $clean | wc -w | cut -d' ' -f1 )
-chars=$( echo $clean | wc -c | cut -d' ' -f1 )
+#chars=$( printf '%s\n' "$clean" | wc -c | cut -d' ' -f1 )
+words=$( printf '%s\n' "$clean" | wc -w | cut -d' ' -f1 )
 
 # count sentences
 
@@ -110,24 +117,30 @@ chars=$( echo $clean | wc -c | cut -d' ' -f1 )
 
 typetoken () {
 
-    # sample 1k words randomly
-    # only perform STTR on files longer than 1k words
-    #if [ wc -logs/word-count.txt - "$last" ]
+    # # sample 1k words randomly
+    # # only perform STTR on files longer than 1k words
+    # #if [ wc -logs/word-count.txt - "$last" ]
 
-    minlen=1000
-    length=$( wc -l logs/all-words.txt | cut -d' ' -f1 )
+    # minlen=1000
+    # length=$( wc -l logs/all-words.txt | cut -d' ' -f1 )
 
-    if [ $length -gt $minlen ]
-    then
-        shuf -n $minlen logs/all-words.txt > logs/1k-sample.txt
-    fi
+    # if [ "$length" -gt "$minlen" ]
+    # then
+    #     shuf -n "$minlen" logs/all-words.txt > logs/1k-sample.txt
+    # fi
 
-    # count types
-    types=$( cat logs/1k-sample.txt | uniq | wc -l )
+    # # count types
+    types=$( cat logs/all-words.txt | uniq | wc -l )
+    tokens=$( cat logs/all-words.txt | wc -l )
+
+    echo $types
+    echo $tokens
 
     # get type-token ratio
-    ttr=$( echo "scale=2; $types/$minlen" | bc -l )
-    return $ttr
+    #
+    # ttr=$( printf '%s\n' "scale=2; $types/$minlen" | bc -l )
+    #ttr=$( $types/$tokens )
+    #return $ttr
 }
 
 # ==========================================================
@@ -143,20 +156,20 @@ report () {
     normal=$(tput sgr0)
 
     clear
-    echo "    =================================="
-    echo "     ${bold}summary for $source"
-    echo "    ----------------------------------"
-    echo "        ${bold}words:               ${RED}$words${NC}"
-    echo "        ${bold}characters:          ${RED}$chars${NC}"
-    echo "        ${bold}type-token ratio:    ${RED}$ttr${NC}"
-    tput sgr0                               # Reset colors to "normal."
-    echo " \r"
-    echo "    ${bold}your 25 most used words are:"
-    tput sgr0                               # Reset colors to "normal."
-    echo " \r"
-    head -n 25 logs/minus-stop.txt | column
-    echo " \r"
+    printf '%s\n' "    =================================="
+    printf '%s\n' "     ${bold}summary for $source"
+    printf '%s\n' "    ----------------------------------"
+    printf '%s\n' "        ${bold}words:               ${RED}$words${NC}"
+    printf '%s\n' "        ${bold}characters:          ${RED}$chars${NC}"
+    # printf '%s\n' "        ${bold}type-token ratio:    ${RED}$ttr${NC}"
+    # tput sgr0                               # Reset colors to "normal."
+    # printf '%s\n' " \r"
+    # printf '%s\n' "    ${bold}your 25 most used words are:"
+    # tput sgr0                               # Reset colors to "normal."
+    # printf '%s\n' " \r"
+    # head -n 25 logs/minus-stop.txt | column
+    # printf '%s\n' " \r"
 }
 
-# typetoken
-report
+typetoken
+# report
